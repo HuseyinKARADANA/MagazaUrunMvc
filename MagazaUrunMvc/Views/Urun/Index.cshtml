@@ -1,0 +1,38 @@
+﻿@using MagazaUrunMvc.Models.Entity
+@model List<TblUrunler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Ad</th>
+        <th>Marka</th>
+        <th>Stok</th>
+        <th>Alış Fiyatı</th>
+        <th>Satış Fiyatı</th>
+        <th>Kategori</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+
+    @foreach (var urun in Model)
+    {
+        <tr>
+            <td>@urun.id</td>
+            <td>@urun.ad</td>
+            <td>@urun.marka</td>     
+            <td>@urun.stok</td>
+            <td>@urun.alisFiyat</td>
+            <td>@urun.satisFiyat</td>
+            <td>@urun.TblKategori.ad</td>
+            <td><a href="/Urun/UrunSil/@urun.id" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Urun/UrunGetir/@urun.id" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+
+
+</table>
+<a href="/Urun/YeniUrun/" class="btn btn-primary">Yeni Ürün Girişi</a>
