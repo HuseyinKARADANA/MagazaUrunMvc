@@ -1,0 +1,30 @@
+﻿@using MagazaUrunMvc.Models.Entity
+@model List<TblKategori>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Kategori Adı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+   
+        @foreach(var kategori in Model)
+            {
+                <tr>
+                    <td>@kategori.id</td>
+                    <td>@kategori.ad</td>
+                    <td><a href="/Kategori/KategoriSil/@kategori.id" class="btn btn-danger">Sil</a></td>
+                    <td><a href="/Kategori/KategoriGetir/@kategori.id" class="btn btn-success">Güncelle</a></td>
+                </tr>
+            }
+        
+    
+</table>
+<a href="/Kategori/YeniKategori/" class="btn btn-primary">Yeni Kategori</a>
+
