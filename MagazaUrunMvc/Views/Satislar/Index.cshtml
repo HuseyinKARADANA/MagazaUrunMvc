@@ -1,0 +1,36 @@
+﻿@using MagazaUrunMvc.Models.Entity
+@model List<TblSatislar>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Ürün</th>
+        <th>Personel</th>
+        <th>Müşteri</th>
+        <th>Fiyat</th>
+        <th>Tarih</th>
+        
+    </tr>
+
+    @foreach (var satis in Model)
+    {
+        <tr>
+            <td>@satis.id</td>
+            <td>@satis.TblUrunler.ad</td>
+            <td>@satis.TblPersonel.ad @satis.TblPersonel.soyad</td>
+            <td>@satis.TblMusteri.ad @satis.TblMusteri.soyad</td>
+            <td>@satis.fiyat</td>
+            <td>@satis.tarih</td>
+           
+        </tr>
+    }
+
+
+</table>
+<a href="/Satislar/YeniSatis/" class="btn btn-primary">Yeni Satış İşlemi</a>
+
+

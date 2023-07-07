@@ -30,5 +30,6 @@ namespace MagazaUrunMvc.Models.Entity
         public virtual DbSet<TblPersonel> TblPersonels { get; set; }
         public virtual DbSet<TblSatislar> TblSatislars { get; set; }
         public virtual DbSet<TblUrunler> TblUrunlers { get; set; }
+        public virtual DbSet<TblAdmin> TblAdmins { get; set; }
     }
 }

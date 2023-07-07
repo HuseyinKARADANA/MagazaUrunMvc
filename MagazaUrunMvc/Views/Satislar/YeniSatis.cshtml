@@ -1,0 +1,26 @@
+﻿@model MagazaUrunMvc.Models.Entity.TblSatislar
+@{
+    ViewBag.Title = "YeniSatis";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post">
+    <h2>Yeni Satış Paneli</h2>
+    <br />
+    <label>Ürün:</label>
+    @Html.DropDownListFor(x => x.TblUrunler.id, (List<SelectListItem>)ViewBag.urunler, new { @class = "form-control" })
+    <br />
+    <label>Personel:</label>
+    @Html.DropDownListFor(x => x.TblPersonel.id, (List<SelectListItem>)ViewBag.personeller, new { @class = "form-control" })
+    <br />
+    <label>Müşteri:</label>
+    @Html.DropDownListFor(x => x.TblMusteri.id, (List<SelectListItem>)ViewBag.musteriler, new { @class = "form-control" })
+    <br />
+    <label>Fiyat:</label>
+    @Html.TextBoxFor(x => x.fiyat, new { @class = "form-control" })
+    <br />
+
+    <button class="btn btn-info">Satış Yap</button>
+</form>
+
+
