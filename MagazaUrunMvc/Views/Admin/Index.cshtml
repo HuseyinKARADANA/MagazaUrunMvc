@@ -1,0 +1,35 @@
+﻿@model MagazaUrunMvc.Models.Entity.TblAdmin
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal1">
+    Yeni Admin Tanımla
+</button>
+
+<div class="modal fade" id="Modal1" tabindex="-1" role="dialog" aria-labelledby="Modal1Label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="Modal1Label">Admin Ekleme Paneli</h2>
+            </div>
+            <form method="post" action="/Admin/YeniAdmin">
+                <div class="modal-body">
+                    <label for="kullanici">Kullanıcı Adı</label>
+                    @Html.TextBoxFor(m => m.kullanici, new { @class = "form-control", id = "kullanici" })
+                    <br />
+                    <label for="sifre">Şifre</label>
+                    @Html.TextBoxFor(m => m.sifre, new { @class = "form-control", id = "sifre" })
+                    <br />
+                    <button type="submit" class="btn btn-info">Kaydet</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Vazgeç</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
