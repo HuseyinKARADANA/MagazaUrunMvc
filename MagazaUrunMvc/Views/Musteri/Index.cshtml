@@ -1,0 +1,41 @@
+﻿@using MagazaUrunMvc.Models.Entity
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<TblMusteri>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Şehir</th>
+        <th>Bakiye</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+
+    @foreach (var musteri in Model)
+    {
+        <tr>
+            <td>@musteri.id</td>
+            <td>@musteri.ad</td>
+            <td>@musteri.soyad</td>
+            <td>@musteri.sehir</td>
+            <td>@musteri.bakiye</td>
+            <td><a href="/Musteri/MusteriSil/@musteri.id" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Musteri/MusteriGetir/@musteri.id" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+        
+
+</table>
+<br />
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new {sayfa}))
+<a href="/Musteri/YeniMusteri/" class="btn btn-primary">Yeni Müşteri</a>
+
+
+
